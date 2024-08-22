@@ -20,8 +20,16 @@ install_nginx() {
             apt-get update
             apt-get install -y gnupg2 lsb-release software-properties-common
             OS_CODENAME=$(lsb_release -cs)
-            echo "deb http://nginx.org/packages/mainline/debian/ $OS_CODENAME nginx" | tee /etc/apt/sources.list.d/nginx.list
-            echo "deb-src http://nginx.org/packages/mainline/debian/ $OS_CODENAME nginx" | tee -a /etc/apt/sources.list.d/nginx.list
+            
+            # Add the correct repository for Ubuntu Jammy
+            if [ "$OS_CODENAME" == "jammy" ]; then
+                echo "deb [trusted=yes] http://nginx.org/packages/ubuntu/ $OS_CODENAME nginx" | tee /etc/apt/sources.list.d/nginx.list
+                echo "deb-src [trusted=yes] http://nginx.org/packages/ubuntu/ $OS_CODENAME nginx" | tee -a /etc/apt/sources.list.d/nginx.list
+            else
+                echo "deb http://nginx.org/packages/mainline/debian/ $OS_CODENAME nginx" | tee /etc/apt/sources.list.d/nginx.list
+                echo "deb-src http://nginx.org/packages/mainline/debian/ $OS_CODENAME nginx" | tee -a /etc/apt/sources.list.d/nginx.list
+            fi
+            
             wget -qO - http://nginx.org/keys/nginx_signing.key | apt-key add -
             ;;
 
@@ -98,8 +106,8 @@ echo "Check out the server.cfg on the repo to see how to configure your server."
 
 # Ad for my project
 echo -e "\n\n\e[35m"
-echo "If you want a realiable DDoS protection for your server"
-echo "To get the msot out of your server and to protect it from DDoS attacks"
+echo "If you want a reliable DDoS protection for your server"
+echo "To get the most out of your server and to protect it from DDoS attacks"
 echo "Check out PurpleMaze, the most advanced algorithmic-based DDoS protection"
 echo -e "\e[31m"
 echo "https://purplemaze.net"
