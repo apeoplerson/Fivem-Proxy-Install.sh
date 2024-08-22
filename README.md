@@ -1,10 +1,7 @@
 # Fivem-Proxy-Install.sh
-Handy script to install nginx as a proxy for your FiveM/RedM server.
+This is a handy script made by MathiAs2Pique to install Nginx as a proxy for your FiveM/RedM server. I take no credit for this; it was created by MathiAs2Pique. I just made a couple of modifications to support Ubuntu. This script is incredible and makes setting up a proxy so easy. 
 
-## Why ?
-As I own [purplemaze](https://purplemaze.net), an anti-DDoS protection for FiveM, I needed to generate some proxy by hand, and I thought it would be a good idea to automate the process.  
-Additionally, some people were asking me how to do it, so I decided to make a script to help them.  
-**Feel free to DM me on Discord for help: @m2p_**  
+As you know, having a proxy for your FiveM server is very important and a great way to avoid getting DDoS attacks and users discovering your public IP. This can also be set up with Cloudflare Tunnel, but only do this if you know what you're doing. This script is perfect for setting up the reverse proxy. If you have any questions or need help, please create an issue.
 
 ## Requirements
 - Debian linux distribution (Tested on debian 10/11)
@@ -13,9 +10,12 @@ Additionally, some people were asking me how to do it, so I decided to make a sc
 - A FiveM/RedM server
 
 ## Installation
-1. Download the script
-2. Make it executable: `chmod +x fivem-proxy-install.sh`
-3. Run it: `./fivem-proxy-install.sh`
+
+**Side Note:** Make sure you have your domain ready and pointing to the server IP if you're going to use SSL. If you're unsure what this means, it involves creating an A record for the specific hostname you will be using. For example, if your hostname is `play1.mydomain.com`, you would create an A record that points to the server IP. This is necessary so that CERTBOT can generate your SSL certificate. You need to do this before you start the install script.
+
+1. Download the script (git clone https://github.com/apeoplerson/Fivem-Proxy-Install.sh.git fivemproxy)
+2. Make it executable: `chmod +x fivem-nginx-proxy-install.sh`
+3. Run it: `./fivem-nginx-proxy-install.sh`
 
 ## Usage
 1. Follow the instructions
@@ -27,15 +27,10 @@ Additionally, some people were asking me how to do it, so I decided to make a sc
 - [Let's Encrypt](https://letsencrypt.org/)
 - [FiveM](https://fivem.net/)
 - [RedM](https://redm.gg/)
-- [Me](https://github.com/MathiAs2Pique)
+- [MathiAs2Pigue](https://github.com/MathiAs2Pique)
 
-### Ad
-
-If you want a strong protection with more than a year of experience and constantly updated, you can check out [PurpleMaze](https://purplemaze.net).  
-[![PurpleMaze](https://purplemaze.net/img/logo.png)](https://discord.gg/RThBYA5fAD)
-
-## Additional notes
-- I personnaly recommend to use CloudFlare: DNS, Proxy and Edge Cache are really useful.
+## Additional notes by MathiAs2Pique
+- I personnaly recommend to use CloudFlare: DNS, Proxy and Edge Cache are really useful. 
 - Please do not use the built-in nginx cache, as it's a mess if you want to udpate your scripts, and it would cost you a lot more than CloudFlare.
 - If you have your own SSL certificate, then just check web.conf to edit what needs to be edited.
 - If you want to use a custom port, then just check web.conf to edit what needs to be edited.
