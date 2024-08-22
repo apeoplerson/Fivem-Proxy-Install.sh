@@ -11,7 +11,7 @@ As you know, having a proxy for your FiveM server is very important and a great 
 
 ## Installation
 
-**Side Note:** Make sure you have your domain ready and pointing to the server IP if you're going to use SSL. If you're unsure what this means, it involves creating an A record for the specific hostname you will be using. For example, if your hostname is `play1.mydomain.com`, you would create an A record that points to the server IP. This is necessary so that CERTBOT can generate your SSL certificate. You need to do this before you start the install script.
+**Side Note:** Make sure you have your domain ready and pointing to the server IP if you're going to use SSL, unless you're using Cloudflare. If so, there is an option in the script to opt out of the SSL install. If you're unsure what this means, it involves creating an A record for the specific hostname you will be using. For example, if your hostname is `play1.mydomain.com`, you would create an A record that points to the server IP. This is necessary so that CERTBOT can generate your SSL certificate unless once again your using cloudflare. Be sure to do this before you start the install script.
 
 1. Download the script (git clone https://github.com/apeoplerson/Fivem-Proxy-Install.sh.git fivemproxy)
 2. cd into fivemproxy folder (cd fivemproxy)
